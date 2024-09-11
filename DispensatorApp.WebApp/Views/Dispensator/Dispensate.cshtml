@@ -1,0 +1,26 @@
+﻿@model DispensatorApp.Database.ViewModel.DispensationModeViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card mb-4 shadow-sm d-flex align-items-center justify-content-center text-center w-50">
+    <div class="card-header bg-info w-100">
+        <h4 class="my-0 font-weight-normal">Monto</h4>
+    </div>
+    <div class="card-body">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <form method="post" asp-controller="Dispensator" asp-action="Dispensate">
+            <label asp-for="MoneyQuantity">Favor de ingresar el monto</label>
+            <input asp-for="MoneyQuantity"/>
+            <button type="submit" class="btn btn-sm btn-block btn-primary">Ir</button>
+        </form>
+        <form method="post" asp-controller="Dispensator" asp-action="GoBack">
+            <input type="hidden" asp-for="DispensationMode"/>
+            <button type="submit" class="btn btn-warning">Volver al modo de dispensacion</button>
+        </form>
+    </div>
+</div>
+
+
+
+

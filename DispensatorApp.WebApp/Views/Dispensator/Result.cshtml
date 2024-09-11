@@ -1,0 +1,38 @@
+﻿@model DispensatorApp.Database.ViewModel.DispensationQuantitiesViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card mb-4 shadow-sm d-flex align-items-center justify-content-center text-center w-50">
+    <div class="card-header bg-info w-100">
+        <h4 class="my-0 font-weight-normal">Ticket de retiro</h4>
+    </div>
+    <div class="card-body">
+        <h4>Se han retirado: @Model.Amount</h4>
+        <hr />
+        @if (Model.QuantityOf1000 != 0 && Model.QuantityOf1000 != null)
+        {
+            <p><b>Billetes de 1000: </b> @Model.QuantityOf1000</p>
+        }
+        @if (Model.QuatityOf500 != null && Model.QuatityOf500 != 0)
+        {
+            <p><b>Billetes de 500: </b> @Model.QuatityOf500</p>
+        }
+        @if (Model.QuatityOf200 != null && Model.QuatityOf200 != 0)
+        {
+            <p><b>Billetes de 200: </b> @Model.QuatityOf200</p>
+        }
+        @if (Model.QuatityOf100 != null && Model.QuatityOf100 != 0)
+        {
+            <p><b>Billetes de 100: </b> @Model.QuatityOf100</p>
+        }
+        <form method="post" asp-controller="Dispensator" asp-action="GoBack">
+            <input type="hidden" asp-for="DispensationMode" />
+            <button type="submit" class="btn btn-warning">Volver al modo de dispensacion</button>
+        </form>
+    </div>
+</div>
+
+
+
+
